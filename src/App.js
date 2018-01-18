@@ -2,19 +2,19 @@ import React, { Component } from 'react'
 import './App.css'
 import Carousel from './components/Carousel.js'
 import Events from './components/Events.js'
-import moment from 'moment'
 // Images
 import councillogo from './img/dcsdc.png'
 import visitDerry from './img/visit-derry.png'
 import TwitterTimeline from 'react-twitter-embedded-timeline'
-import eventData from  './eventData.js'
+import eventList from  './eventList.js'
 import Calendar from './components/Calendar.js'
 require('react-big-calendar/lib/css/react-big-calendar.css')
+
+
 export class App extends Component {
   //Place the body inside of the 'bodyDiv'
   render () {
     //below are exmaple of the tags that can be used...edit or remove as neccessary
-console.log( moment())
 
     let eventAlt1 = 'Visit Derry'
     let socialHashtags = '#VisitDerry | #YearOfYouth | #DerryClipper'
@@ -31,8 +31,6 @@ console.log( moment())
         <header>
           <div className='container-fluid'>
             <h1>Whats on Derry & Strabane</h1>
-            {/* <img id='headerLogo' src={foyle2018} className='App-Logo col-xs-6 col-sm-6 col-md-5 col-lg-5' alt='Foyle Maritime Festival 2018' /> */}
-            {/* <img id='headerLogo' src={homecoming2018} className='col-xs-6 col-sm-6 col-md-6 col-lg-6' alt='Join Homecoming July 2018' /> */}
           </div>
         </header>
         <div id='body' className='row'>
@@ -42,12 +40,12 @@ console.log( moment())
         </div>
         <br />
         <div className='bodyDiv col-lg-12 col-md-12 col-sm-12 col-xs-12'>
-          <Calendar views={['week', 'day']}/>
+          <Calendar/>
         </div>
         <div className='section' id='recent-projects' >
           <div className='container'>
               <div className='bodyDiv col-lg-12 col-md-12 col-sm-12 col-xs-12'>
-                <Events eventInformation={eventData()}/>
+                <Events eventInformation={eventList()}/>
             </div>
           </div>
         </div>
