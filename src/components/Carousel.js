@@ -1,7 +1,8 @@
 var React = require('react');
 var Slider = require('react-slick').default;
-var slider1 = require('../img/FMF2018_New_Slider_Dec.jpg')
-// var slider2 = require('../img/Hallow.jpg')
+var slider1 = require('../img/Halloween.jpg')
+var slider2 = require('../img/Jazz.jpg')
+var slider3 = require('../img/Maritime.jpg')
 
 class Carousel extends React.Component {
     render () {
@@ -15,11 +16,14 @@ class Carousel extends React.Component {
       swipeToSlide: true,
       autoplay: true,
       autoplaySpeed: 5000
+      // ,
+      // adaptiveHeight: true
     };
     return (
       <Slider className='sliderTest' {...settings}>
         <div><img src={slider1} className='img-responsive' height="500"  alt='test'/></div>
-        <div><img src={slider1} className='img-responsive' height="500"  alt='test'/></div>
+        <div><img src={slider2} className='img-responsive' height="500"  alt='test'/></div>
+        <div><img src={slider3} className='img-responsive' height="500"  alt='test'/></div>
       </Slider>
     );
   }

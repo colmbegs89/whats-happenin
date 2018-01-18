@@ -1,67 +1,38 @@
 import React, { Component } from 'react'
 import './App.css'
 import Carousel from './components/Carousel.js'
-
+import Events from './components/Events.js'
+import moment from 'moment'
 // Images
 import councillogo from './img/dcsdc.png'
-import headerLogo1 from './img/FMF-logo2018.png'
-import headerLogo2 from './img/Homecoming-v2.png'
-import eventLogo1 from './img/visit-derry.png'
-import eventLogo2 from './img/clipper18.png'
+import visitDerry from './img/visit-derry.png'
 import TwitterTimeline from 'react-twitter-embedded-timeline'
-
+import eventData from  './eventData.js'
+import Calendar from './components/Calendar.js'
+require('react-big-calendar/lib/css/react-big-calendar.css')
 export class App extends Component {
   //Place the body inside of the 'bodyDiv'
-  getDefinedBody () {
-    return (
-     <div className='bodyDiv'>
-     </div>
-    )
-  }
-
   render () {
     //below are exmaple of the tags that can be used...edit or remove as neccessary
+console.log( moment())
 
-    let bodyContent = this.getDefinedBody()
-    let headerAlt1 = 'Foyle Maritime Festival 2018'
-    let headerAlt2 = 'Join Homecoming July 2018'
-    let eventAlt2 = 'Clipper 17-18'
     let eventAlt1 = 'Visit Derry'
-    let socialHashtags = '#FoyleMaritime | #TeamDLD | #DerryClipper'
-    let facebookUrl = 'https://www.facebook.com/foylemaritimefestival'
-    let twitterUrl = 'https://twitter.com/foylemaritime'
-    let youtubeUrl = 'https://www.youtube.com/channel/UCXxDAlu790v9MnTWyZfjSUQ'
-    let instagramUrl = 'https://www.instagram.com/foylemaritime/'
+    let socialHashtags = '#VisitDerry | #YearOfYouth | #DerryClipper'
+    let facebookUrl = 'https://en-gb.facebook.com/whatsonderrystrabane/'
+    let twitterUrl = 'https://twitter.com/derryvisitor?lang=en'
+    let youtubeUrl = 'https://www.youtube.com/channel/UCQyB3imZ6nAmiYOYTFqpyHw'
+    let instagramUrl = 'https://www.instagram.com/visitderry/'
     let twitterWidget = '395843229469270016'
     let mailToAddress = 'event@derrystrabane.com'
 
-
+    // const events = eventJSON
     return (
       <div className='App '>
         <header>
           <div className='container-fluid'>
-            <img id='headerLogo' src={headerLogo1} className='col-xs-6 col-sm-6 col-md-5 col-lg-5' alt={headerAlt1} />
-            <img id='headerLogo' src={headerLogo2} className='col-xs-6 col-sm-6 col-md-6 col-lg-6' alt={headerAlt2} />
-          </div>
-          <div className='nav-wrapper' >
-            <nav className='navbar ' >
-              <div className='container'>
-                <div className='collapse navbar-collapse' >
-                  <ul className='nav navbar-nav navbar-right'>
-                    <li><a className='navText' href='/' >Home</a></li>
-                    <li className='dropdown'>
-                      <a className='dropdown-toggle navText' data-toggle='dropdown'>Our Story </a>
-                      <ul className='dropdown-menu navText'>
-                        <li><a className='navText' href='/about' >About</a></li>
-                        <li className=' divider'></li>
-                        <li><a className='navText' href='/accommodation' >Your Stay</a></li>
-                      </ul>
-                    </li>
-                    <li><a className='navText' href='/contact' >Contact</a></li>
-                  </ul>
-                </div>
-              </div>
-            </nav>
+            <h1>Whats on Derry & Strabane</h1>
+            {/* <img id='headerLogo' src={foyle2018} className='App-Logo col-xs-6 col-sm-6 col-md-5 col-lg-5' alt='Foyle Maritime Festival 2018' /> */}
+            {/* <img id='headerLogo' src={homecoming2018} className='col-xs-6 col-sm-6 col-md-6 col-lg-6' alt='Join Homecoming July 2018' /> */}
           </div>
         </header>
         <div id='body' className='row'>
@@ -69,22 +40,23 @@ export class App extends Component {
             <Carousel />
           </div>
         </div>
+        <br />
+        <div className='bodyDiv col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+          <Calendar views={['week', 'day']}/>
+        </div>
         <div className='section' id='recent-projects' >
           <div className='container'>
-            <div className='row'>
-              <div className='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
-                {bodyContent}
-              </div>
+              <div className='bodyDiv col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+                <Events eventInformation={eventData()}/>
             </div>
           </div>
         </div>
         <div className='section-colored col-lg-12 col-md-12 col-sm-12 col-xs-12'>
-          <div className='container'>
+          <div className='container-fluid'>
             <div className='container clients logo-contain'>
               <div className='row'>
-                <div className='col-lg-4 col-md-4 col-sm-4 col-xs-4'><img className='img-responsive' src={eventLogo1} alt={eventAlt1}/> </div>
-                <div className='col-lg-4 col-md-4 col-sm-4 col-xs-4'> <img className='img-responsive' src={councillogo} alt='Derry City and Strabane District Council'/> </div>
-                <span className='col-lg-4 col-md-4 col-sm-4 col-xs-4'><img className='img-responsive' src={eventLogo2} alt={eventAlt2}/></span>
+                <div className='col-lg-6 col-md-6 col-sm-6 col-xs-6'> <img className='img-responsive' src={councillogo} alt='Derry City and Strabane District Council'/> </div>
+                <span className='col-lg-6 col-md-6 col-sm-6 col-xs-6'><img className='img-responsive' src={visitDerry} alt={eventAlt1}/></span>
               </div>
             </div>
           </div>
